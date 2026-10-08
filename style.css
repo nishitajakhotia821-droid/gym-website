@@ -2457,3 +2457,411 @@ textarea:focus-visible {
 		transform: none;
 	}
 }
+
+/* Program discovery and conversion actions */
+.program-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: -20px 0 28px;
+}
+
+.program-filter {
+	min-height: 40px;
+	padding: 9px 13px;
+	border: 1px solid var(--color-line);
+	background: transparent;
+	color: var(--color-muted);
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.45px;
+	text-transform: uppercase;
+	transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.program-filter:hover,
+.program-filter.is-active {
+	border-color: var(--color-accent);
+	background: var(--color-accent);
+	color: var(--color-ink);
+}
+
+.program-card[hidden] {
+	display: none;
+}
+
+.program-empty {
+	padding: 24px;
+	border: 1px solid var(--color-line);
+	color: var(--color-muted);
+	font-size: 12px;
+	text-align: center;
+}
+
+.price-card {
+	transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.price-card:hover {
+	border-color: rgba(215, 255, 56, 0.64);
+	transform: translateY(-4px);
+}
+
+.plan-duration {
+	margin: -17px 0 19px;
+	color: var(--color-muted);
+	font-size: 9px;
+}
+
+.price-button {
+	font-family: var(--font-body);
+}
+
+.pricing-footnote {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 5px 18px;
+}
+
+.pricing-footnote p {
+	margin: 0;
+	color: var(--color-muted);
+	font-size: 9px;
+}
+
+.trial-link {
+	padding: 7px 0;
+	border: 0;
+	background: transparent;
+	color: var(--color-accent);
+	cursor: pointer;
+}
+
+.trainer-card {
+	transition: transform 240ms ease;
+}
+
+.trainer-card:hover {
+	transform: translateY(-4px);
+}
+
+.trainer-bio {
+	min-height: 34px;
+	margin: 10px 0 12px;
+	color: var(--color-muted);
+	font-size: 9px;
+	line-height: 1.7;
+}
+
+.trainer-book {
+	display: inline-flex;
+	min-height: 42px;
+	align-items: center;
+	gap: 12px;
+	padding: 0 12px;
+	border: 1px solid var(--color-line);
+	background: transparent;
+	color: var(--color-paper);
+	font-size: 8px;
+	font-weight: 700;
+	letter-spacing: 0.65px;
+	cursor: pointer;
+	transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.trainer-book i {
+	color: var(--color-accent);
+	transition: transform 180ms ease;
+}
+
+.trainer-book:hover {
+	border-color: var(--color-accent);
+	background: var(--color-accent);
+	color: var(--color-ink);
+}
+
+.trainer-book:hover i {
+	color: var(--color-ink);
+	transform: translateX(3px);
+}
+
+.contact-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: -8px 0 24px;
+}
+
+.contact-actions a,
+.contact-actions button {
+	display: inline-flex;
+	min-height: 42px;
+	align-items: center;
+	gap: 8px;
+	padding: 0 11px;
+	border: 1px solid var(--color-line);
+	background: transparent;
+	color: var(--color-paper);
+	font-size: 8px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.contact-actions i {
+	color: var(--color-accent);
+}
+
+.contact-actions a:hover,
+.contact-actions button:hover {
+	border-color: var(--color-accent);
+	background: rgba(215, 255, 56, 0.08);
+}
+
+/* Accessible enquiry dialogs */
+.gym-modal {
+	position: fixed;
+	z-index: 1200;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 16px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.gym-modal.is-open {
+	visibility: visible;
+	opacity: 1;
+}
+
+.gym-modal-backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(5, 6, 5, 0.84);
+	backdrop-filter: blur(5px);
+}
+
+.gym-modal-dialog {
+	position: relative;
+	z-index: 1;
+	width: min(760px, 100%);
+	max-height: min(92vh, 900px);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	padding: clamp(24px, 4vw, 42px);
+	border: 1px solid rgba(215, 255, 56, 0.4);
+	background: var(--color-surface);
+	box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+	transform: translateY(12px);
+	transition: transform 220ms ease;
+}
+
+.gym-modal.is-open .gym-modal-dialog {
+	transform: translateY(0);
+}
+
+.gym-modal-close {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	display: grid;
+	width: 42px;
+	height: 42px;
+	place-items: center;
+	border: 1px solid var(--color-line);
+	background: var(--color-ink);
+	color: var(--color-paper);
+	cursor: pointer;
+}
+
+.gym-modal-content > .section-title,
+.gym-confirmation > .section-title {
+	font-size: clamp(43px, 7vw, 68px);
+}
+
+.gym-modal-intro {
+	max-width: 590px;
+	margin: 13px 48px 22px 0;
+	color: var(--color-muted);
+	font-size: 11px;
+	line-height: 1.8;
+}
+
+.gym-enquiry-form .form-row {
+	gap: 15px;
+}
+
+.gym-enquiry-form .field {
+	margin-bottom: 11px;
+}
+
+.gym-enquiry-form .field input,
+.gym-enquiry-form .field select,
+.gym-enquiry-form .field textarea {
+	min-height: 46px;
+	font-size: 11px;
+}
+
+.gym-enquiry-form .field textarea {
+	min-height: 78px;
+}
+
+.gym-form-status {
+	min-height: 18px;
+	margin: 0 0 7px;
+	color: #ffb7aa;
+	font-size: 9px;
+}
+
+.gym-submit {
+	min-width: 190px;
+}
+
+.gym-submit:disabled {
+	cursor: wait;
+	opacity: 0.75;
+}
+
+.submit-loader {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-left: 3px;
+	border: 2px solid rgba(16, 17, 15, 0.35);
+	border-top-color: var(--color-ink);
+	border-radius: 50%;
+	animation: submit-spin 700ms linear infinite;
+}
+
+@keyframes submit-spin {
+	to { transform: rotate(360deg); }
+}
+
+.gym-confirmation {
+	padding: 17px 0 4px;
+}
+
+.gym-confirmation > p:not(.eyebrow):not(.confirmation-ref) {
+	margin: 15px 0;
+	color: var(--color-paper);
+	font-size: 12px;
+}
+
+.confirmation-details {
+	display: grid;
+	gap: 0;
+	margin: 20px 0 12px;
+	border-top: 1px solid var(--color-line);
+}
+
+.confirmation-details > div {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 11px 0;
+	border-bottom: 1px solid var(--color-line);
+	font-size: 10px;
+}
+
+.confirmation-details dt {
+	color: var(--color-muted);
+}
+
+.confirmation-details dd {
+	margin: 0;
+	color: var(--color-paper);
+	font-weight: 700;
+	text-align: right;
+}
+
+.confirmation-ref {
+	margin: 14px 0;
+	color: var(--color-muted);
+	font-size: 9px;
+}
+
+.confirmation-ref strong {
+	margin-left: 6px;
+	color: var(--color-accent);
+	letter-spacing: 0.8px;
+}
+
+.confirmation-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.gym-confirmation [tabindex="-1"]:focus {
+	outline: none;
+}
+
+@media (max-width: 600px) {
+	.program-filters {
+		flex-wrap: nowrap;
+		margin-right: -20px;
+		overflow-x: auto;
+		padding: 2px 20px 8px 0;
+		scrollbar-width: thin;
+	}
+
+	.program-filter {
+		flex: 0 0 auto;
+	}
+
+	.trainer-book {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.pricing-footnote {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.gym-modal {
+		align-items: end;
+		padding: 8px;
+	}
+
+	.gym-modal-dialog {
+		width: 100%;
+		max-height: 94dvh;
+		padding: 24px 18px;
+	}
+
+	.gym-modal-content > .section-title,
+	.gym-confirmation > .section-title {
+		font-size: clamp(42px, 13vw, 58px);
+	}
+
+	.gym-modal-intro {
+		margin-right: 34px;
+	}
+
+	.gym-enquiry-form .form-row {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.gym-enquiry-form .field {
+		margin-bottom: 12px;
+	}
+
+	.gym-submit,
+	.confirmation-actions .button {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.submit-loader {
+		animation: none;
+	}
+}
